@@ -5,7 +5,7 @@
   </head>
 <div class="max-w-6xl mx-auto ">
 <div class="banner">
-          <h1>List of new applicants </h1>
+          <h1>List applicants </h1>
         </div>
 </div>
 <header class="p-3 bg-dark text-white">
@@ -16,26 +16,28 @@
       </a>
 <html>
 <head>
-
-<form method="post" action="{{ route('login.perform') }}">
- <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-<title>View Records</title>
+<title>List applicants</title>
 </head>
 
+<body>
 <body>
 <table border = "1">
 <tr>
 <td>Name</td>
-<td>details</td>
+<td>Major</td>
+<td>Phone</td>
+<td>job</td>
+<td>cv</td>
+<td>Status</td>
 </tr>
-@foreach ($users as $user)
+@foreach ($projects as $project)
 <tr>
-<td>{{ $user->name }}</td>
-
-<td>
-<a type="button" href="/details/{{ $user->id }}"> show</a>
-</td>
+<td>{{ $project->name }}</td>
+<td>{{ $project->major }}</td>
+<td>{{ $project->phone }}</td>
+<td>{{ $project->job }}</td>
+<td>{{ $project->cv }}</td>
+<td>{{ $project->status }}</td>
 </tr>
 @endforeach
 </table>

@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
       return view('index', [
-      'projects' =>project::getdata()
+      'projects' =>project::all()
       ]);
     }
 
@@ -43,10 +43,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($projects) // can read from DB , write like = news/{id} 
+    public function show(string $id) // can read from DB , write like = news/{id} 
     {
-        $project= project::findOrFail($projectid); //This will fetch the respective record from the table. 
-        return view('details',compact('project'));
+       
     }
 
     /**

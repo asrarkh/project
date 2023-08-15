@@ -1,49 +1,45 @@
-@extends('user-view')
-@section('details')
-<div class="card">
-  <div class="card-header">
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-        <i class="fas fa-minus"></i></button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-        <i class="fas fa-times"></i></button>
-    </div>
-  </div>
-  <div class="card-body p-0">
-    <table class="table table-bordered table-striped" id="example2">
-        <thead>
-            <tr>
-                <th style="width: 10%">
-                    Employee ID
-                </th>
-                <th style="width: 10%">
-                    Role
-                </th>
-                <th style="width: 10%">
-                    Region
-                </th>
-                <th style="width: 10%">
-                </th>
-            </tr>
-        </thead>
-            <tr>
-            <td>
-                {{ $members->Orglevel1 }}
-            </td>
-            <td>
-               {{ $members->Role }}
-            </td>
-            <td>
-               {{ $members->Region }}
-            </td>
-            <td>
-    <a href="#modal-lg5" data-toggle="modal" data-target="#modal-lg5" class="btn btn-warning btn-sm">
-            Feedback
-        </a>
-       </td>
-   </tr>
-  </table>   
- </div>
+@include('layouts.partials.navbar')
 
-</div>
-@endsection
+</style>
+  </head>
+<div class="max-w-6xl mx-auto ">
+<div class="banner">
+          <h1>details </h1>
+        </div>
+  <html>
+<head>
+<title>Details</title>
+</head>
+
+<body>
+<table border = "1">
+<tr>
+<td>Name</td>
+<td>Major</td>
+<td>Phone</td>
+<td>job</td>
+<td>cv</td>
+<td>Status</td>
+</tr>
+
+<tr>
+<td>{{ $project->name }}</td>
+<td>{{ $project->major }}</td>
+<td>{{ $project->phone }}</td>
+<td>{{ $project->job }}</td>
+<td>{{ $project->cv }}</td>
+<td>
+    @if($project->status == null)
+    <a type="button" href="/details/{{$project->id}}/approve">approve</a>
+    <a type="button" href="/details/{{$project->id}}/reject">reject</a>
+    @else
+    <a type="button" href="">{{$project->status}}</a>
+    @endif
+</td> 
+</tr>
+
+</table>
+</body>
+</html>
+
+    
