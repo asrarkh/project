@@ -17,4 +17,14 @@ class Reqjob extends Model
         'phone',
         'status',
     ];
+
+    /**
+     * Get the listJob that owns the Reqjob
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function listJob()
+    {
+        return $this->belongsTo(ListJob::class, 'list_job_id');
+    }
 }

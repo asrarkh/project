@@ -13,4 +13,14 @@ class ListJob extends Model
         'name',
         'is_active',
     ];
+
+    /**
+     * Get all of the reqjobs for the ListJob
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reqjobs()
+    {
+        return $this->hasMany(Reqjob::class);
+    }
 }

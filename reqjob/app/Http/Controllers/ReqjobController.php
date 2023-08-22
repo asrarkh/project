@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reqjob;
+use App\Models\ListJob;
 
 class ReqjobController extends Controller
 {
@@ -13,7 +14,7 @@ class ReqjobController extends Controller
     public function index()
     {
       return view('index', [
-      'Reqjob' =>Reqjob::all()
+      'Reqjob' => Reqjob::all()
       ]);
     }
 
@@ -22,7 +23,9 @@ class ReqjobController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $jobs = ListJob::where('is_active',true)->get();
+        // dd($jobs);
+        return view('create',['jobs'=>$jobs]);
     }
 
     /**
@@ -30,23 +33,21 @@ class ReqjobController extends Controller
      */
     public function store(Request $request)   //post
     {
-        
+
         $reqjob = new Reqjob();
         $reqjob->name = $request->input('name');
         $reqjob->major = $request->input('major');
-        $reqjob->job = $request->input('job');
-        $reqjob->cv = $request->input('cv');
+        $reqjob->list_job_id = $request->input('list_job_id');
+
+        if($request->file('cv')){
+            $fileName = time().'_'.$request->file('cv')->getClientOriginalName();
+            $filePath = $request->file('cv')->storeAs('cv', $fileName, 'public');
+            $reqjob->cv = '/storage/' . $filePath;
+        }
+
         $reqjob->phone = $request->input('phone');
         $reqjob->save();
         return redirect()->route('reqjob.index');
     }
-    
-    public function viewFile()
-    {
-        $file_extension = $request->cv->getClientOriginalExtension();
-        $filename = time().$file_extension;
-        $path = 'files';
-        $request->cv->move($path,$filename);
-        return 'ok';
-    }
+
 }

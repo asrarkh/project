@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('major');
-            $table->integer('job');
+            // $table->integer('job');
             $table->integer('phone')->unique();
-            $table->binary('cv');
+            $table->string('cv');
+            $table->unsignedBigInteger('list_job_id');
+            $table->foreign('list_job_id')->references('id')->on('list_jobs')->cascade('delete');
             $table->enum('status',['approved','rejected'])->nullable();
             $table->timestamps();
         });

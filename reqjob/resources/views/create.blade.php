@@ -7,7 +7,7 @@
 <link href="assets/css/styles.css" rel="stylesheet"/>
 <div class="flex justify-center ">
     <form action="{{route('reqjob.index')}}" method="post" enctype="multipart/form-data">
-        @csrf 
+        @csrf
         <div>
             <lable for="name">name<span>*</span></lable>
             <input id="name" name="name" type="text">
@@ -18,10 +18,10 @@
         </div>
         <div>
         <lable for="job">job<span>*</span></lable>
-            <select id="job" name="job">
-                <option value="1">software Engineer</option>
-                <option value="2">Cyber Security</option>
-                <option value="3">Data analyst</option>
+            <select id="job" name="list_job_id">
+                @foreach ($jobs as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
             </select>
         </div>
         <div>
@@ -32,7 +32,7 @@
         <lable for="cv">cv<span>*</span></lable>
             <input id="cv" name="cv" type="file">
         </div>
-        
+
         <div>
             <button type="submit">submit</button>
     </form>

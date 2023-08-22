@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
+{
     /**
      * Home Routes
      */
@@ -35,36 +35,36 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
-        
 
-        
+
+
     });
-     
+
     Route::group(['middleware' => ['auth']], function() {
         /**
          * Logout Routes
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-          
+
         Route::get('view-records','UserViewController@index')->name('view-rec');
         Route::get('/details/{id}',"DetailsController@show");
-    
+
         Route::get('/details/{id}/approve',"DetailsController@approve_req");
         Route::get('/details/{id}/reject',"DetailsController@reject_req");
-    
+
         Route::get('/records/approved',"DetailsController@approved_reqs");
         Route::get('/records/rejected',"DetailsController@rejected_reqs");
-    
+
     });
 });
 
 
-Route::get('create', function () {
-    return view('create');
-});
+// Route::get('create', function () {
+//     return view('create');
+// });
 
-Route::resource('reqjob','App\Http\Controllers\ReqjobController'); 
+Route::resource('reqjob','App\Http\Controllers\ReqjobController');
+Route::get('create-job',[App\Http\Controllers\HomeController::class,'createJob']);
+Route::post('store-job',[App\Http\Controllers\HomeController::class,'storeJob']);
 
-
-Route::post('/upload-file','App\Http\Controllers\ReqjobController@fileUpload');
 
