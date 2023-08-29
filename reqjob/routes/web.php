@@ -46,25 +46,25 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
+        /* view user Routes */
         Route::get('view-records','UserViewController@index')->name('view-rec');
-        Route::get('/details/{id}',"DetailsController@show");
 
+        /* details Routes */
+        Route::get('/details/{id}',"DetailsController@show");
         Route::get('/details/{id}/approve',"DetailsController@approve_req");
         Route::get('/details/{id}/reject',"DetailsController@reject_req");
-
         Route::get('/records/approved',"DetailsController@approved_reqs");
         Route::get('/records/rejected',"DetailsController@rejected_reqs");
 
     });
 });
 
-
-// Route::get('create', function () {
-//     return view('create');
-// });
-
+/* after submet Routes */
 Route::resource('reqjob','App\Http\Controllers\ReqjobController');
+
+/* create list job Routes */
 Route::get('create-job',[App\Http\Controllers\HomeController::class,'createJob']);
 Route::post('store-job',[App\Http\Controllers\HomeController::class,'storeJob']);
 
-
+/* uploud file Routes */
+Route::get('upload-file','Storge\app\public\uploads\cv');

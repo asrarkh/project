@@ -8,7 +8,10 @@
 <body>
 <link href="assets/css/styles.css" rel="stylesheet"/>
 <body>
-<table border = "1">
+    <div class="container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+    <table class="table table-bordered">
 <tr>
 <td>Name</td>
 <td>Major</td>

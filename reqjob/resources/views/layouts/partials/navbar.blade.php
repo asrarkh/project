@@ -1,46 +1,63 @@
+ <!-- Header -->
+ <header class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
 
-<header class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <svg class="bi me-2" width="9" height="7" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <link href="{{URL::asset('css/wave-bsb.css')}}" rel="stylesheet"/>
 
-      <link href="assets/css/styles.css" rel="stylesheet"/>
-      <body class="antialiased">
-      <button type="button" class="btn btn-primary btn-sm">
-      <div class="text-end">
-        <a href="{{ route('home.index') }}">home</a>
-        <button type="button" class="btn btn-primary btn-sm">
 
-      <div class="text-end">
-          <a href="{{ route('view-rec') }}">list of applicants</a>
-          <button type="button" class="btn btn-primary btn-sm">
-        
-      <div class="text-end">
-          <a href="/records/approved">Approved Applications</a>
-          <button type="button">
-        <div class="text-end">
-          <a href="/records/rejected">Rejected Applications</a>
-          <button type="button" class="btn btn-primary btn-sm">
- 
-   
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                       href="{{ route('home.index') }}">home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                        href="{{ route('view-rec') }}">list of applicants</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                        href="/records/approved">Approved Applications</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                        href="/records/rejected">Rejected Applications</a>
+                      </li>
+                    </form>
+                  </div>
+                </div>
       @auth
         {{auth()->user()->name}}
         <div class="text-end">
-          <a href="{{ route('logout.perform') }}" class="btn btn-primary btn-sm">Logout</a>
+          <a href="{{ route('logout.perform') }}" class="btn btn-warning">Logout</a>
         </div>
       @endauth
 
       @guest
-        <div class="text-end">
-          <a href="{{ route('login.perform') }}" class="btn btn-outline-light me-2">Login</a>
-          <a href="{{ route('register.perform') }}" class="btn btn-primary btn-sm">Sign-up</a>
-          <link href="assets/css/styles.css" rel="stylesheet" type=""/>
-        </div>
+      <li class="nav-item">
+        <a href="{{ route('login.perform') }}" class="btn btn-warning">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('register.perform') }}" class="btn btn-warning">Sign-up</a>
+      </li>
+
       @endguest
 
-     
+
 
     </div>
   </div>

@@ -1,10 +1,11 @@
 </head>
-<div class="max-w-6xl mx-auto ">
-<div class="banner">
-          <h1>نموذج توظيف</h1>
+
+<div >
+
+          <h5>نموذج توظيف</h5>
         </div>
 </div>
-<link href="assets/css/styles.css" rel="stylesheet"/>
+<link href="{{URL::asset('css/wave-bsb.css')}}" rel="stylesheet"/>
 <div class="flex justify-center ">
     <form action="{{route('reqjob.index')}}" method="post" enctype="multipart/form-data">
         @csrf

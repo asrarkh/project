@@ -1,7 +1,8 @@
 </head>
+@include('layouts.partials.navbar')
 <div class="max-w-6xl mx-auto ">
 <div class="banner">
-          <h1>نموذج توظيف</h1>
+          <h1></h1>
         </div>
 </div>
 <link href="assets/css/styles.css" rel="stylesheet"/>

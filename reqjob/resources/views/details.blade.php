@@ -2,7 +2,7 @@
 
 </style>
   </head>
-      
+
         </div>
   <html>
 <head>
@@ -10,7 +10,10 @@
 </head>
 
 <body>
-<table border = "1">
+    <div class="container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+    <table class="table table-bordered">
 <tr>
 <td>Name</td>
 <td>Major</td>
@@ -24,8 +27,8 @@
 <td>{{ $reqjob->name }}</td>
 <td>{{ $reqjob->major }}</td>
 <td>{{ $reqjob->phone }}</td>
-<td>{{ $reqjob->job }}</td>
-<td> <a href="/upload-file">Download CV</a></td>
+<td>{{ $reqjob->listJob->name}}</td>
+<td> <a href="{{asset($reqjob->cv)}}">Download CV</a></td>
 <td>
     @if($reqjob->status == null)
     <a type="button" href="/details/{{$reqjob->id}}/approve">approve</a>
@@ -33,11 +36,10 @@
     @else
     <a type="button" href="">{{$reqjob->status}}</a>
     @endif
-</td> 
+</td>
 </tr>
 
 </table>
 </body>
 </html>
 
-    

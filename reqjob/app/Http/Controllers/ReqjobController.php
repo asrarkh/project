@@ -42,7 +42,7 @@ class ReqjobController extends Controller
         if($request->file('cv')){
             $fileName = time().'_'.$request->file('cv')->getClientOriginalName();
             $filePath = $request->file('cv')->storeAs('cv', $fileName, 'public');
-            $reqjob->cv = '/storage/' . $filePath;
+            $reqjob->cv = '/storage/uploads/' . $filePath;
         }
 
         $reqjob->phone = $request->input('phone');
