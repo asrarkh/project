@@ -3,8 +3,8 @@
 
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <svg class="bi me-2" width="9" height="7" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-4 text-white text-decoration-none">
+        <svg class="bi me-4" width="20" height="7" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -17,11 +17,17 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
 
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-3">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
                        href="{{ route('home.index') }}">home</a>
                       </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                        href="/reqjob/create" >Requset Job</a>
+                      </li>
+
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
                         href="{{ route('view-rec') }}">list of applicants</a>
@@ -47,13 +53,13 @@
       @endauth
 
       @guest
-      <li class="nav-item">
+      <div class="nav-item">
         <a href="{{ route('login.perform') }}" class="btn btn-warning">Login</a>
-      </li>
+      </div>
 
-      <li class="nav-item">
+      <div class="nav-item">
         <a href="{{ route('register.perform') }}" class="btn btn-warning">Sign-up</a>
-      </li>
+      </div>
 
       @endguest
 
