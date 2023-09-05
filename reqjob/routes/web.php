@@ -66,5 +66,5 @@ Route::resource('reqjob','App\Http\Controllers\ReqjobController');
 Route::get('create-job',[App\Http\Controllers\HomeController::class,'createJob']);
 Route::post('store-job',[App\Http\Controllers\HomeController::class,'storeJob']);
 
-/* uploud file Routes */
-Route::get('upload-file','Storge\app\public\uploads\cv');
+
+
