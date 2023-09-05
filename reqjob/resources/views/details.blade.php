@@ -31,8 +31,8 @@
 <td> <a href="{{asset($reqjob->cv)}}">Download CV</a></td>
 <td>
     @if($reqjob->status == null)
-    <a type="button" href="/details/{{$reqjob->id}}/approve">approve</a>
-    <a type="button" href="/details/{{$reqjob->id}}/reject">reject</a>
+    <a class="badge bg-success" type="button" href="/details/{{$reqjob->id}}/approve">approve</a>
+    <a class="badge bg-danger" href="/details/{{$reqjob->id}}/reject">reject</a>
     @else
     <a type="button" href="">{{$reqjob->status}}</a>
     @endif
